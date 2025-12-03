@@ -116,9 +116,9 @@ body {
     text-align: center;
     border-bottom: 2px solid var(--accent);
     flex-shrink: 0;
-    position: sticky;
-    top: 0;
-    z-index: 100;
+    position: static;
+    top: auto;
+    z-index: auto;
 }
 
 .header h1 {
@@ -151,9 +151,9 @@ body {
     display: flex;
     gap: 12px;
     align-items: center;
-    position: sticky;
-    top: 0;
-    z-index: 99;
+    position: static;
+    top: auto;
+    z-index: auto;
 }
 
 .name-input {
@@ -603,34 +603,43 @@ body {
     .sidebar-left {
         grid-column: 1;
         grid-row: 1 / 4;
+        position: sticky;
+        top: 20px;
+        max-height: calc(100vh - 40px);
+        overflow-y: auto;
         align-self: start;
     }
 
     .chat-container {
         grid-column: 2;
         grid-row: 1;
+        display: flex;
+        flex-direction: column;
         max-height: calc(100vh - 40px);
         overflow-y: auto;
     }
 
     .chat-column {
-        position: relative;
+        flex: 1;
     }
 
     .header {
         position: sticky;
         top: 0;
-        z-index: 1000;
+        width: 100%;
+        z-index: 1;
     }
 
     .name-input-section {
         position: sticky;
         top: 0;
-        z-index: 999;
+        width: 100%;
+        z-index: 1;
     }
 
     .chat-box {
         min-height: 300px;
+        overflow: visible;
     }
 
     .notes-section {
@@ -649,6 +658,8 @@ body {
     .notes-column {
         grid-column: 3;
         grid-row: 1 / 4;
+        position: sticky;
+        top: 20px;
         max-height: calc(100vh - 40px);
         overflow-y: auto;
         align-self: start;
